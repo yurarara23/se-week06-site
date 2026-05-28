@@ -3,49 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>自己紹介</title>
+    <title>パイモン - 原神公式プロフィール</title>
     <link rel="stylesheet" href="design.css">
 </head>
 <body>
-    <h1>自己紹介</h1>
+    <div class="stars-background">
+        <span class="star"></span>
+        <span class="star"></span>
+        <span class="star"></span>
+        <span class="star"></span>
+        <span class="star"></span>
+    </div>
+
+    <h1>✨ パイモン ✨</h1>
     
     <div class="profile-container">
-        <img src="paimon.png" alt="プロフィール画像" class="profile-image">
+        <img src="paimon.png" alt="パイモン" class="profile-image paimon-bounce">
         <div class="profile-text">
             <h2>基本情報</h2>
-            <p>こんにちは。私はWebアプリケーション開発を学んでいるプログラマーです。</p>
+            <p>プイモプイ～！🎉 私はパイモン、原神の世界で旅人を案内する妖精です。冒険心いっぱい、食べるのが大好き！</p>
+            <button class="voice-button" onclick="playPaimonVoice()">🔊 パイモンの声を聞く</button>
         </div>
     </div>
     
-    <h2>スキル</h2>
+    <h2>✨ 特技</h2>
     <ul>
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JavaScript</li>
-        <li>Java</li>
-        <li>Git</li>
+        <li class="skill-item">🗺️ 世界中の地図を自由に作成できる</li>
+        <li class="skill-item">🍖 美食の目利きと評論家</li>
+        <li class="skill-item">💬 7言語以上を話せる天才言語学者</li>
+        <li class="skill-item">📍 どこでも迷わずに旅人をナビゲート</li>
     </ul>
     
-    <h2>興味のあること</h2>
+    <h2>🌍 好きなもの</h2>
     <ul>
-        <li>Webアプリケーション開発</li>
-        <li>フロントエンド技術</li>
-        <li>UI/UXデザイン</li>
-        <li>クラウドサービス</li>
+        <li class="like-item">🍗 チキン</li>
+        <li class="like-item">🥟 餃子</li>
+        <li class="like-item">🍜 各地の料理</li>
+        <li class="like-item">⭐ 冒険</li>
     </ul>
     
-    <h2>プロジェクト経歴</h2>
-    <ol>
-        <li>Gitを使ったバージョン管理の学習</li>
-        <li>HTMLを使ったWebページの作成</li>
-    </ol>
+    <h2>📊 ステータス</h2>
+    <div class="status-container">
+        <div class="status-bar">
+            <span class="status-label">元気度</span>
+            <div class="bar">
+                <div class="fill" style="width: 100%;" onclick="refillBar(this)"></div>
+            </div>
+            <span class="status-value">100%</span>
+        </div>
+        <div class="status-bar">
+            <span class="status-label">食欲</span>
+            <div class="bar">
+                <div class="fill" style="width: 150%;" onclick="refillBar(this)"></div>
+            </div>
+            <span class="status-value">150%⚡</span>
+        </div>
+        <div class="status-bar">
+            <span class="status-label">天才度</span>
+            <div class="bar">
+                <div class="fill" style="width: 99%;" onclick="refillBar(this)"></div>
+            </div>
+            <span class="status-value">99%</span>
+        </div>
+    </div>
     
-    <h2>目標</h2>
-    <p>フルスタック開発エンジニアとしてキャリアを構築することが目標です。日々、新しい技術を学んで成長していきたいと考えています。</p>
+    <h2>🎪 パイモンの性格</h2>
+    <div class="personality-cards">
+        <div class="card">
+            <h3>😄 明るい</h3>
+            <p>いつでもハイテンション！困難も笑顔で乗り越えます</p>
+        </div>
+        <div class="card">
+            <h3>🤔 天才的</h3>
+            <p>自称天才。でも実はポンコツなことも多いかな？</p>
+        </div>
+        <div class="card">
+            <h3>🍴 食いしん坊</h3>
+            <p>料理のためなら世界の果てまで！予算は旅人持ちです</p>
+        </div>
+    </div>
+
+    <h2>🎤 名台詞</h2>
+    <div class="quote-box" onclick="changeQuote()">
+        <p id="quote">「プイモプイ～！」</p>
+        <p style="font-size: 0.9em; color: #7f8c8d; margin-top: 10px; cursor: pointer;">💭 クリックで変わります</p>
+    </div>
+    
+    <h2>📝 旅人への忠告</h2>
+    <div class="warning-box">
+        <p>⚠️ パイモンは絶対に食べてはいけません！</p>
+        <p style="margin-top: 10px; font-size: 0.95em;">でも、一緒にご飯を食べることはWelcomeです。パイモンの分もお忘れなく！😄</p>
+    </div>
     
     <hr>
     <footer>
-        <p>&copy; 2026 自己紹介ページ</p>
+        <p>&copy; 2026 パイモン公式プロフィール</p>
+        <p style="font-size: 0.9em; margin-top: 10px;">プイモプイ～！✨</p>
     </footer>
+
+    <script>
+        const quotes = [
+            "「プイモプイ～！」",
+            "「次は何を食べようかな～」",
+        ];
+
+        function changeQuote() {
+            const quoteElement = document.getElementById('quote');
+            const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+            quoteElement.style.animation = 'none';
+            setTimeout(() => {
+                quoteElement.textContent = randomQuote;
+                quoteElement.style.animation = 'pop 0.5s ease-out';
+            }, 10);
+        }
+
+        function playPaimonVoice() {
+            alert('プイモプイ～！😄\n\n(ここに音声ファイルを追加できます)');
+        }
+
+        function refillBar(element) {
+            const bar = element.parentElement;
+            const value = bar.nextElementSibling;
+            element.style.width = '100%';
+            value.textContent = '100%';
+            
+            setTimeout(() => {
+                element.style.animation = 'fillPulse 0.6s ease-out';
+                alert('チャージ完了！元気100倍です！⚡');
+            }, 100);
+        }
+
+        // ページ読み込み時のアニメーション
+        window.addEventListener('load', () => {
+            const title = document.querySelector('h1');
+            title.style.animation = 'titleAppear 1s ease-out';
+        });
+    </script>
 </body>
 </html>
